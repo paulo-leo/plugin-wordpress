@@ -15,6 +15,17 @@ Text Domain: akismet
 //=================================================
 //Aborte se este arquivo for chamado diretamente
 //=================================================
+
+/*define o diretório de onde virão os arquivos*/
+
+function wp_include($file){
+	include(plugin_dir_path( __FILE__ ).'includes/'.$file);
+}
+
+function wp_function($file){
+	include(plugin_dir_path( __FILE__ ).'functions/'.$file);
+}
+
 if(!defined('ABSPATH')){ 
     die;
 }
@@ -27,6 +38,11 @@ if(!defined('ABSPATH')){
  }
  
 add_filter('the_content','teste');
+
+wp_include('page.php');
+wp_include('profile.php');
+
+
 
 
 
